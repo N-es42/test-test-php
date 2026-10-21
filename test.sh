@@ -156,6 +156,16 @@ if command -v systemctl >/dev/null 2>&1; then
             fi
         fi
     done
+
+     # LiteSpeed LSAPI PHP worker'larini yenile
+    if [ -d /usr/local/lsws/admin/tmp ]; then
+        if touch /usr/local/lsws/admin/tmp/.lsphp_restart.txt; then
+            echo -e "${GREEN}OK - LiteSpeed PHP worker restart tetiklendi${NC}"
+        else
+            echo -e "${RED}FAIL - LiteSpeed PHP worker restart${NC}"
+            FAIL=$((FAIL + 1))
+        fi
+    fi
 fi
 
 # LiteSpeed PHP worker'larini yenile
