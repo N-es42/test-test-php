@@ -158,6 +158,12 @@ if command -v systemctl >/dev/null 2>&1; then
     done
 fi
 
+# LiteSpeed PHP worker'larini yenile
+if [ -d /usr/local/lsws/admin/tmp ]; then
+    touch /usr/local/lsws/admin/tmp/.lsphp_restart.txt
+    echo "OK - LiteSpeed PHP worker restart tetiklendi"
+fi
+
 echo ""
 echo "======================================"
 echo " PHP ini_get() Dogrulama"
